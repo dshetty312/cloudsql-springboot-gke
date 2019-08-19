@@ -3,7 +3,7 @@ Containerized Spring boot with cloud sql on GKE.
 
  
 export GOOGLE_APPLICATION_CREDENTIALS=key.json
-## here key.json is the service account key
+* here key.json is the service account key
 
 ```
 gcloud sql instances create --gce-zone us-east1-b --database-version POSTGRES_9_6 --memory 4 --cpu 2 test-postgres
@@ -30,7 +30,8 @@ project: gcp-dataproc-dikshith
 
 
 # Authorize to use gcr
-```gcloud auth configure-docker
+```
+gcloud auth configure-docker
 ```
 
 # Creates the below file
@@ -38,10 +39,11 @@ $HOME/.docker/config.json
 
 
 # Creating docker image of spring boot and push to gcr
-```mvn clean compile com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/gcp-dataproc-dikshith/spring-boot-postgres-gke-app:v2
+```
+mvn clean compile com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/gcp-dataproc-dikshith/spring-boot-postgres-gke-app:v2
 ```
 
-#Testing the docker image locally
+# Testing the docker image locally
 ```
 docker run -ti --rm -p 8080:8080 gcr.io/$GCP_PROJECT_ID/spring-boot-postgres-gke-app:v2
 ```
