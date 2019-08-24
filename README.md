@@ -63,3 +63,9 @@ kubectl create secret generic cloudsql-db-credentials \
     --from-literal=password=postgres
 ```
 
+# Deploy service and deployment
+
+```
+kubectl apply -f kube.yml
+```
+
